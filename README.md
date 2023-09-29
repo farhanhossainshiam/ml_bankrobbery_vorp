@@ -19,6 +19,7 @@ It's a Simple bank robbery you need to item for starting the robbery.
 
 - Items required to start Bank Robbery
 - Minigames
+- Need police to start robbery
 
 ## Installation
 
@@ -36,4 +37,5 @@ It's a Simple bank robbery you need to item for starting the robbery.
 - [Blue](https://github.com/kamelzarandah)
 - [BCC Team](https://github.com/BryceCanyonCounty)
 - [Zaps6000](https://github.com/Zaps6000)
+- [R S K](https://www.twitch.tv/rsk_29)
 - Thanks to all for supporting me
