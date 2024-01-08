@@ -47,7 +47,7 @@ AddEventHandler('lockpick', function()
 
         if count >= 1 then
             -- Check the police count and execute the appropriate action
-            if policeCount >= 5 then
+            if policeCount >= Config.MinPoliceCount then
                 -- Perform actions when there are 5 or more police
                 Inventory.subItem(_source, "lockpick", 1)
                 TriggerClientEvent('StartRobbing', _source)
