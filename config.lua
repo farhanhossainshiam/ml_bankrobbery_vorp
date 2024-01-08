@@ -18,3 +18,6 @@ Config.Banks = {
 -- Messages
 Config.RobValentine = "Press [~e~ENTER~q~] to rob Valentine Bank."
 Config.RobBlackwater = "Press [~e~ENTER~q~] to rob Blackwater Bank."
+
+-- Minimum police count required for a successful bank robbery
+Config.MinPoliceCount = 5  -- Change this value as needed
