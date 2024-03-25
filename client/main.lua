@@ -29,7 +29,7 @@ AddEventHandler('StartRobbing', function()
 
     if IsPlayerDead(PlayerId()) then
         -- Player is dead, prevent robbery
-        TriggerEvent("vorp:Tip", "You cannot start a robbery while dead.", 5000)
+        TriggerEvent("vorp:NotifyLeft", "Error", "You cannot start a robbery while dead.", "menu_textures", "cross", 4000, "COLOR_RED")
         return
     end
     
@@ -37,7 +37,7 @@ AddEventHandler('StartRobbing', function()
 
     if isNearBank and not robbing and (currentTime - lastRobberyTime) >= robberyCooldown then
         robbing = true
-        TriggerEvent("vorp:Tip", messages.startRobbery, 5000)
+        TriggerEvent("vorp:NotifyLeft", "[Robbery]", messages.startRobbery, "menu_textures", "log_gang_take", 4000, "COLOR_YELLOW")
         Citizen.Wait(5000)
         
         robbing = false
@@ -47,15 +47,15 @@ AddEventHandler('StartRobbing', function()
         if lockpickResult then
             -- Lockpick was successful, give a reward here
             TriggerServerEvent("mlpayout") -- Restore the "mlpayout" event for adding gold/money
-            TriggerEvent("vorp:Tip", messages.lockpickSuccess, 5000)
+            TriggerEvent("vorp:NotifyLeft", "[Robbery]", messages.lockpickSuccess, "menu_textures", "menu_icon_tick", 4000, "COLOR_GREEN")
         else
             -- Lockpick failed
-            TriggerEvent("vorp:Tip", messages.lockpickFail, 5000)
+            TriggerEvent("vorp:NotifyLeft", "[Robbery]", messages.lockpickFail, "menu_textures", "stamp_locked_rank", 4000, "COLOR_RED")
         end
     elseif (currentTime - lastRobberyTime) < robberyCooldown then
         local remainingCooldown = math.ceil((robberyCooldown - (currentTime - lastRobberyTime)) / 60000) -- Convert milliseconds to minutes
         local cooldownMessage = string.format(messages.cooldownMessage, remainingCooldown)
-        TriggerEvent("vorp:Tip", cooldownMessage, 5000)
+        TriggerEvent("vorp:NotifyLeft", "[Robbery]", cooldownMessage, "menu_textures", "menu_icon_info_warning", 4000, "COLOR_YELLOW")
     end
 end)
 
