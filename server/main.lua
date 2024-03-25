@@ -12,8 +12,6 @@ TriggerEvent("vorp_inventory:getData", function(call)
     data = call
 end)
 
-
-
 -- Register the "mlpayout" server event
 RegisterServerEvent("mlpayout")
 AddEventHandler("mlpayout", function()
@@ -24,8 +22,8 @@ AddEventHandler("mlpayout", function()
         -- Give the player money and items as a reward
         TriggerEvent("vorp:addMoney", _source, 0, 1000, _user)
         Inventory.addItem(_source, "goldbar", 3)
-        -- Notify the player of their reward
-        TriggerClientEvent("vorp:Tip", _source, 'You found 1000$ and 3 golden bars!', 5000)
+        -- Notify the player of their reward using vorp:NotifyLeft event
+        TriggerClientEvent("vorp:NotifyLeft", _source, "Reward", 'You found $1000 and 3 golden bars!', "menu_textures", "log_gang_bag", 5000, "COLOR_GREEN")
     end)
 end)
 
@@ -52,11 +50,11 @@ AddEventHandler('lockpick', function()
                 Inventory.subItem(_source, "lockpick", 1)
                 TriggerClientEvent('StartRobbing', _source)
             else
-                -- Perform alternative actions when there are less than 5 dashes
-                TriggerClientEvent("vorp:Tip", _source, 'There are not enough police officers nearby', 5000)
+                -- Perform alternative actions when there are less than 5 police
+                TriggerClientEvent("vorp:NotifyLeft", _source, "Robbery", 'There are not enough police officers nearby', "menu_textures", "menu_icon_ability_defense", 5000, "COLOR_RED")
             end
         else
-            TriggerClientEvent("vorp:Tip", _source, 'You do not have enough lockpicks', 5000)
+            TriggerClientEvent("vorp:NotifyLeft", _source, "Lockpick", 'You do not have enough lockpicks', "menu_textures", "menu_icon_info_lock", 5000, "COLOR_RED")
         end
     end)
 end)
