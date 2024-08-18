@@ -34,5 +34,4 @@ It's a Simple bank robbery you need to item for starting the robbery.
 - Based on [@ml_bankrobbery](https://github.com/mrlupo/ml_bankrobbery)
 - [Blue](https://github.com/kamelzarandah)
 - [BCC Team](https://github.com/BryceCanyonCounty)
-- [Zaps6000](https://github.com/Zaps6000)
 - Thanks to all for supporting me
